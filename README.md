@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-Link [Projec](https://chat-app-livid-iota.vercel.app/).
+Link [Project](https://chat-app-livid-iota.vercel.app/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
