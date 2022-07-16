@@ -1,29 +1,48 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import LogOut from "./LogOut";
-import { db } from "../firebase";
+import { auth, db } from "../firebase";
+import SendMessage from "./SendMessage";
 
 const Chat = () => {
+   const scroll = useRef();
    const [messages, setMessages] = useState([]);
+
    useEffect(() => {
       db.collection("messages")
          .orderBy("createdAt")
-         .limit(50)
-         .onSnapshot((snapshot) => {
-            setMessages(snapshot.docs.map((doc) => doc.data()));
+         .limit(100)
+         .onSnapshot((query) => {
+            const data = query.docs.map((doc) => ({
+               ...doc.data(),
+               id: doc.id,
+            }));
+
+            setMessages(data);
          });
    }, []);
 
    return (
       <>
          <LogOut />
-         {messages.map(({ id, text, photoURL }) => (
-            <div>
-               <div key={id}>
-                  <img src={photoURL} alt="" />
-                  <p>{text}</p>
+         {messages.map(({ id, text, photoURL, uid }) => (
+            <div className="msgs">
+               <div>
+                  <div
+                     key={id}
+                     className={`msg ${
+                        uid === auth.currentUser.uid ? "sent" : "received"
+                     }`}
+                  >
+                     <img src={photoURL} alt="img" />
+                     <p>{text}</p>
+                  </div>
                </div>
             </div>
          ))}
+
+         <SendMessage scroll={scroll} />
+
+         <div ref={scroll}></div>
       </>
    );
 };

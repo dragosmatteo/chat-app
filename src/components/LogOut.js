@@ -2,16 +2,42 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { auth } from "../firebase";
 
-const LogOut = () => {
-   //    const LogOut = async () => {
-   //       try {
-   //          await firebase.auth().signOut();
-   //       } catch (error) {
-   //          console.error(error);
-   //       }
-   //    };
-
-   return <Button onClick={() => auth.signOut()}>Log Out</Button>;
-};
+//    const LogOut = async () => {
+//       try {
+//          await firebase.auth().signOut();
+//       } catch (error) {
+//          console.error(error);
+//       }
+//    };
+function LogOut() {
+   return (
+      <div
+         style={{
+            display: "flex",
+            justifyContent: "center",
+            position: "fixed",
+            width: "100%",
+            backgroundColor: "#FAFAFA",
+            top: 0,
+            borderBottom: "solid 1px lightgray",
+            zIndex: "10",
+         }}
+      >
+         <Button
+            variant="outlined"
+            style={{
+               padding: "10px",
+               fontSize: "15px",
+               borderRadius: "0",
+               fontWeight: "600",
+               margin: "10px",
+            }}
+            onClick={() => auth.signOut()}
+         >
+            Sign Out
+         </Button>
+      </div>
+   );
+}
 
 export default LogOut;
