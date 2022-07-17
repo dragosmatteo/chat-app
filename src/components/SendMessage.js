@@ -20,6 +20,16 @@ const SendMessage = ({ scroll }) => {
       scroll.current.scrollIntoView({ behavior: "smooth" });
    }
 
+   function empty(e) {
+      let data = e.target.value;
+
+      if (data !== "") {
+         setMsg(data);
+      } else {
+         return;
+      }
+   }
+
    return (
       <div style={{ marginTop: "70px" }}>
          <form onSubmit={handleSubmit}>
@@ -35,7 +45,7 @@ const SendMessage = ({ scroll }) => {
                   placeholder="Message..."
                   type="text"
                   value={msg}
-                  onChange={(e) => setMsg(e.target.value)}
+                  onChange={empty}
                />
                <Button
                   variant="outlined"
