@@ -21,7 +21,7 @@ const SendMessage = ({ scroll }) => {
    }
 
    return (
-      <div>
+      <div style={{ marginTop: "70px" }}>
          <form onSubmit={handleSubmit}>
             <div className="sendMsg">
                <Input

@@ -28,7 +28,7 @@ const signIn = () => {
          <Button
             variant="outlined"
             style={{
-               padding: "30px",
+               padding: "20px",
                fontSize: "20px",
                borderRadius: "0",
                fontWeight: "600",

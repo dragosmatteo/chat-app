@@ -6,7 +6,6 @@ import SendMessage from "./SendMessage";
 const Chat = () => {
    const scroll = useRef();
    const [messages, setMessages] = useState([]);
-
    useEffect(() => {
       db.collection("messages")
          .orderBy("createdAt")
