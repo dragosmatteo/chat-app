@@ -3,13 +3,13 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const firebaseConfig = firebase.initializeApp({
-   apiKey: "AIzaSyB9YrRp8FHCB-BdbLFCkrJLkSDVoExrXKE",
-   authDomain: "fchat-bdf83.firebaseapp.com",
-   projectId: "fchat-bdf83",
-   storageBucket: "fchat-bdf83.appspot.com",
-   messagingSenderId: "133024240451",
-   appId: "1:133024240451:web:d3b2f0bf35b3c2a75255f6",
-   measurementId: "G-06PQDELZ8S",
+   apiKey: process.env.REACT_APP_FIREBASE_API,
+   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+   projectId: process.env.REACT_APP_AUTH_ID,
+   storageBucket: process.env.REACT_APP_STORAGE,
+   messagingSenderId: process.env.REACT_APP_MESSAGING,
+   appId: process.env.REACT_APP_ID,
+   measurementId: process.env.REACT_APP_MEASUREMENT,
 });
 
 const auth = firebaseConfig.auth();

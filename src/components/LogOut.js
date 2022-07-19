@@ -2,13 +2,6 @@ import React from "react";
 import { Button } from "@material-ui/core";
 import { auth } from "../firebase";
 
-//    const LogOut = async () => {
-//       try {
-//          await firebase.auth().signOut();
-//       } catch (error) {
-//          console.error(error);
-//       }
-//    };
 function LogOut() {
    return (
       <div
@@ -21,6 +14,7 @@ function LogOut() {
             top: 0,
             borderBottom: "solid 1px lightgray",
             zIndex: "10",
+            marginBottom: "30px",
          }}
       >
          <Button
