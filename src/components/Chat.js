@@ -20,12 +20,14 @@ const Chat = () => {
          });
    }, []);
 
+   // console.log(messages);
+
    return (
       <>
          <LogOut />
          {messages.map(({ id, text, photoURL, uid }) => (
-            <div className="msgs">
-               <div>
+            <div className="msgs" key={id}>
+               <div key={id}>
                   <div
                      key={id}
                      className={`msg ${
